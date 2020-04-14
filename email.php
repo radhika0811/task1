@@ -1,5 +1,4 @@
 <?php
-echo json_encode($_REQUEST);
 $firstname = $_REQUEST['fname'];
 $lastname = $_REQUEST['lname'];
 $age = $_REQUEST['age'];
@@ -7,7 +6,7 @@ $email = $_REQUEST['mail'];
 $address = $_REQUEST['address'];
 $password = $_REQUEST['password'];
 
-if (empty($firstname) || empty($lastname) || empty($dob) || empty($email) || empty($address) || empty($password)) {
+if (empty($firstname) || empty($lastname) || empty($email) || empty($address) || empty($password)) {
     echo "Please enter values in fields";
 } /*if (empty($theData)) {
     echo "Please enter values in fields";
