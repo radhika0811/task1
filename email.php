@@ -17,7 +17,7 @@ if (empty($firstname) || empty($lastname) || empty($email) || empty($address) ||
     ini_set("sendmail_path", "C:/xampp/sendmail/sendmail.exe");
 
     //mail("radhikaa245@gmail.com", "Form Submission Details", "From: $theData\n");
-    if (mail("radhikaa245@gmail.com", "Form Submission Details", "From: $firstname $lastname $dob $email $age $address\n", "Yes")) echo "mail sent";
+    if (mail("radhikaa245@gmail.com", "Form Submission Details", "From: $firstname $lastname $email $age $address\n", "Yes")) echo "mail sent";
     else echo "error sending mail";
 }
 //fclose($fm);
