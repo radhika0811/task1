@@ -15,9 +15,10 @@
     }
 </style>
 <form action="email.php" method="post" onsubmit="return validation();">
-    <h4>First Name: <input id="name" name="name" placeholder="First Name" type="text"></h4>
+
+    <h4><label for = "fname">First Name:</label>> <input id="fname" name="name" placeholder="First Name" type="text"></h4>
     <br>
-    <h4>Last Name: <input id="email" name="name" placeholder="Last Name" type="text"></h4>
+    <h4><label for = "lname">Last Name:</label>> <input id="lname" name="lname" placeholder="Last Name" type="text"></h4>
     <br>
     <h4>Date Of Birth
         <br>
@@ -104,23 +105,23 @@
             <option value="2019">2019</option>
             <option value="2020">2020</option>
             <option value="2021">2021</option>
-        </select>
-        <h4>Age: <input id="age" placeholder="Age" size="30" type="number"></h4>
+        </select></h4>
+    <h4><label for = "age">Age:</label>> <input id="age" placeholder="Age" size="30" type="number"></h4>
         <br>
-        <h4>Email: <input id="mail" name="email" placeholder="abcD23@xyz.com" type="email"></h4>
+    <h4><label for = "mail">Email: </label>><input id="mail" name="email" placeholder="abcD23@xyz.com" type="email"></h4>
         <br>
-        <h4>Address: <input id="address" placeholder="Address" size="30" type="text"></h4>
+    <h4><label for = "address">Address: </label>><input id="address" placeholder="Address" size="30" type="text"></h4>
         <br>
-        <h4>Password: <input id="password" name="name" placeholder="Password" type="password"></h4>
+    <h4><label for = "password">Password: </label>><input id="password" name="name" placeholder="Password" type="password"></h4>
         <br>
-        <h3><input name="submit" type="submit" value="Submit Now">
+        <h3><input name="submit" type="submit" value="Submit Now"></h3>
             <br>
 </form>
 <div id="eresult"></div>
 <script type="text/javascript">
     function validation() {
-        var name = document.getElementById('name').value;
-        var email = document.getElementById('email').value;
+        var name = document.getElementById('fname').value;
+        var email = document.getElementById('mail').value;
         var password = document.getElementById('password').value;
         var age = document.getElementById('age').value;
         //var dob = document.getElementById('dob').value;
