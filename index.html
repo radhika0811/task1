@@ -11,12 +11,12 @@
     }
 
     h1 {
-        color: green;
+        color: #800e6c;
     }
 </style>
-<form action="email.php" method="post" onsubmit="return validation();">
+<form action="email.php" method="get" onsubmit="return validation();">
 
-    <h4><label for = "fname">First Name:</label><input id="fname" name="name" placeholder="First Name" type="text"></h4>
+    <h4><label for = "fname">First Name:</label><input id="fname" name="fname" placeholder="First Name" type="text"></h4>
     <br>
     <h4><label for = "lname">Last Name:</label><input id="lname" name="lname" placeholder="Last Name" type="text"></h4>
     <br>
@@ -106,16 +106,16 @@
             <option value="2020">2020</option>
             <option value="2021">2021</option>
         </select></h4>
-    <h4><label for = "age">Age:</label> <input id="age" placeholder="Age" size="30" type="number"></h4>
-        <br>
-    <h4><label for = "mail">Email: </label><input id="mail" name="email" placeholder="abcD23@xyz.com" type="email"></h4>
-        <br>
-    <h4><label for = "address">Address: </label><input id="address" placeholder="Address" size="30" type="text"></h4>
-        <br>
-    <h4><label for = "password">Password: </label><input id="password" name="name" placeholder="Password" type="password"></h4>
-        <br>
-        <h3><input name="submit" type="submit" value="Submit Now"></h3>
-            <br>
+    <h4><label for = "age">Age:</label> <input id="age" name="age" placeholder="Age" size="30" type="number"></h4>
+    <br>
+    <h4><label for = "email">Email: </label><input id="email" name="email" placeholder="abcD23@xyz.com" type="email"></h4>
+    <br>
+    <h4><label for = "address">Address: </label><input id="address"  name= "address" placeholder="Address" size="30" type="text"></h4>
+    <br>
+    <h4><label for = "password">Password: </label><input id="password"  name="password" placeholder="Password" type="password"></h4>
+    <br>
+    <h3><input name="submit" type="submit" value="Submit Now"></h3>
+    <br>
 </form>
 <div id="eresult"></div>
 <script type="text/javascript">
@@ -144,3 +144,6 @@
 </script>
 </body>
 </html>
+
+
+
