@@ -1,27 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> Form </title>
+    <title></title>
 </head>
-<body bgcolor="#E6E6FA">
-<h1> Form</h1>
+<body bgcolor="#b0e0e6">
 <style>
-    body {
-        text-align: center;
+   .wrapper input {
+        width:100%;
+        height:30px;
+        border: 1px solid #e0e0e0;
+        padding: 10px;
     }
+   /* button {
+        background-color:green;
+        color:white;
+        border:none;
+        border-radius:5px;
+        font-size:14px;
+        padding:5px;
 
+    }
     h1 {
-        color: #800e6c;
+        color:green;
+    }
+    h4{
+        color:cadetblue;
+    }
+    h1, h4 {
+        text-align:center;
+    }
+    body {
+        width:60%;
+    }*/
+    *{
+        margin :0;
+        padding:0;
+        box-sizing: border-box;
+        outline: none;
+        font-family: Calibri;
+    }
+    .wrapper{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        max-width: 350px;
+        width: 100%;
+        background: lavenderblush;
+        padding: 25px;
+        border-radius: 5px;
+        box-shadow: 4px 4px 2px rgba(254,236,164,1);
+    }
+    .wrapper h2{
+        text-align: center;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: #332902;
+    }
+    .wrapper .btn input[type="submit"]{
+        border: 0;
+        margin-top: 15px;
+        padding: 10px;
+        width: 100%;
+        background: green;
+        color: azure;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-weight: bold;
+        border-radius: 25px;
+        cursor: pointer;
+    }
+    .wrapper #erresult{
+        margin-bottom: 20px;
+        padding: 10px;
+        background: antiquewhite;
+
     }
 </style>
-<form action="email.php" method="get" onsubmit="return validation();">
+<div class="wrapper">
+    <h2> Contact Us </h2>
+<form action="email.php" method="get" onsubmit="return validation()">
 
-    <h4><label for = "fname">First Name:</label><input id="fname" name="fname" placeholder="First Name" type="text"></h4>
-    <br>
-    <h4><label for = "lname">Last Name:</label><input id="lname" name="lname" placeholder="Last Name" type="text"></h4>
-    <br>
-    <h4>Date Of Birth
-        <br>
+    <label for = "fname"><b>First Name:</b></label><input id="fname" name="fname" placeholder="First Name" type="text">
+    <label for = "lname"><b>Last Name:</b></label><input id="lname" name="lname" placeholder="Last Name" type="text">
+    <b>Date Of Birth:</b>
         <select name="month">
             <option value="month">Month</option>
             <option value="january">January</option>
@@ -105,39 +168,35 @@
             <option value="2019">2019</option>
             <option value="2020">2020</option>
             <option value="2021">2021</option>
-        </select></h4>
-    <h4><label for = "age">Age:</label> <input id="age" name="age" placeholder="Age" size="30" type="number"></h4>
+        </select>
     <br>
-    <h4><label for = "email">Email: </label><input id="email" name="email" placeholder="abcD23@xyz.com" type="email"></h4>
-    <br>
-    <h4><label for = "address">Address: </label><input id="address"  name= "address" placeholder="Address" size="30" type="text"></h4>
-    <br>
-    <h4><label for = "password">Password: </label><input id="password"  name="password" placeholder="Password" type="password"></h4>
-    <br>
-    <h4><label for = "amount">Amount:</label> <input id="amount" name="amount" placeholder="Amount" size="30" type="number"></h4>
-    <br>
-    <h3><input name="submit" type="submit" value="Submit Now"></h3>
-    <br>
+    <label for = "email"><b>Email: </b></label><input id="email" name="email" placeholder="abcD23@xyz.com" type="email">
+    <label for = "age"><b>Age: </b></label><input id="age" name="age" placeholder="AGE" type="number">
+    <label for = "address"><b>Address: </b></label><input id="address"  name= "address" placeholder="Address" size="30" type="text">
+    <label for = "password"><b>Password: </b></label><input id="password"  name="password" placeholder="Password" type="password">
+    <label for = "amount"><b>Amount:</b></label> <input id="amount" name="amount" placeholder="Amount" size="30" type="number">
+    <div class="btn"><input type="submit"></div>
 </form>
-<div id="eresult"></div>
+</div>
+    <div id="erresult"></div>
 <script type="text/javascript">
     function validation() {
         var name = document.getElementById('fname').value;
-        var email = document.getElementById('mail').value;
+        var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
         var age = document.getElementById('age').value;
         //var dob = document.getElementById('dob').value;
         if (name == '' || email == '' || password == '') {
-            document.getElementById("eresult").innerHTML = "All Fields Required";
+            document.getElementById("erresult").innerHTML = "All Fields Required";
             return false;
         } else if (name.length < 4) {
-            document.getElementById("eresult").innerHTML = "name should be at least 4 characters long";
+            document.getElementById("erresult").innerHTML = "name should be at least 4 characters long";
             return false;
         } else if (password.length < 5) {
-            document.getElementById("eresult").innerHTML = "password should be at least 5 characters long";
+            document.getElementById("erresult").innerHTML = "password should be at least 5 characters long";
             return false;
         } else if (age < 15) {
-            document.getElementById("eresult").innerHTML = "sorry you're not eligible";
+            document.getElementById("erresult").innerHTML = "sorry you're not eligible";
             return false;
         } else {
             return true;
