@@ -118,7 +118,7 @@
        position: relative;
        margin-bottom: 1000px;
        bottom-left: 250px;
-       transform: translate(10%,550%);
+       transform: translate(10%,700%);
        max-width: 350px;
        width: 100%;
        background: aliceblue;
@@ -137,17 +137,13 @@ We provide you all under agreements, if you already have one, you can kindly upl
     <b>Just drag down and fill up your details.</b>
 </label><br></div>
 <div class="bottom">
-    <form method = "get" enctype="multipart/form-data" action="email.php">
-        <input type="file" name="file" id="file">
-        <input type="Submit" value="upload">
-    </form>
     <p id = "count"></p>
     <script type="text/javascript">init()</script>
     <a download="http://goabrigo.com/test/abc.pdf" href="http://goabrigo.com/test/abc.pdf" onclick="incrementCounter()">Download now</a>
 </div>
 <div class="wrapper">
     <h2> Details </h2>
-<form action="email.php" method="get" onsubmit="return validation()">
+<form action="email.php" method="get" enctype="multipart/form-data" onsubmit="return validation()">
 
     <label for = "fname"><b>Name:</b></label><input id="fname" name="fname" placeholder="First Name" type="text">
     <label for="phone"><b>Mobile number:</b></label><br>
@@ -158,10 +154,12 @@ We provide you all under agreements, if you already have one, you can kindly upl
     <label for = "address2"></label><input id="address2"  name="address2" placeholder="Area/Locality/Landmark" type="text">
     <label for = "address3"></label><input id="address3"  name="address3" placeholder="City" type="text">
         <label for = "zip"><b>Pincode:</b></label><input id="zip"  name="zip" placeholder="Enter Your Pincode" type="number" pattern="[0-9]{6}">
-    <div class = "abc"><input type="radio" id="offline" onclick=" return myFun()"><label for = "offline">Offline Payment</label><br>
+    <div class = "abc"><input type="radio" id="offline" ><label for = "offline">Offline Payment</label><br>
     <input type="radio" id="online" >
         <label for = "online">Online Payment</label></div>
-    <div class="btn"><input type="submit"></div><br><br>
+    <input type="file" name="file" id="file">
+    <div class="btn"><input type="submit"></div><br>
+
     <input type ="checkbox"> I agree to the terms and conditions of XYZ and request you to process the order of creating a
     rental agreement. I undertake that I am authorised to create this transaction. The above stated information is correct
     and no alteration is required.
@@ -211,9 +209,6 @@ We provide you all under agreements, if you already have one, you can kindly upl
         if(count>1){
             alert( "Please wait while the file is loaded");
     }}
-    function myFun() {
-        Window.open("https:goabrigo.com/test/abc.html");
-    }
 </script>
     </div>
 </body>
