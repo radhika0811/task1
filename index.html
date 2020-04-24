@@ -3,7 +3,7 @@
 <head>
     <title></title>
 </head>
-<body bgcolor="#b0e0e6">
+< bgcolor="#b0e0e6">
 <style>
    .wrapper input {
         width:100%;
@@ -48,9 +48,9 @@
     }
     .wrapper{
         position: absolute;
-        top: 70%;
-        center: -1000%;
-        transform: translate(120%,60%);
+        top: 50%;
+        right: -10%;
+        transform: translate(-50%,-50%);
         max-width: 350px;
         width: 100%;
         background: lavenderblush;
@@ -92,11 +92,15 @@
         border-radius: 25px;
         cursor: pointer;
     }
+    .wrapper .abc input[type = "radio"]{
+        width: 15px;
+        height: 15px;
+    }
     .boxed{
         position: absolute;
         top: 50%;
         margin-left: 190px;
-        transform: translate(30%,-55%);
+        transform: translate(-35%,-55%);
         max-width: 500px;
         width: 100%;
         background: beige;
@@ -114,7 +118,7 @@
        position: relative;
        margin-bottom: 1000px;
        bottom-left: 250px;
-       transform: translate(120%,600%);
+       transform: translate(10%,550%);
        max-width: 350px;
        width: 100%;
        background: aliceblue;
@@ -133,8 +137,8 @@ We provide you all under agreements, if you already have one, you can kindly upl
     <b>Just drag down and fill up your details.</b>
 </label><br></div>
 <div class="bottom">
-    <form method = "post" enctype="multipart/form-data" action="radhika.php">
-        <input type="file" name="file">
+    <form method = "get" enctype="multipart/form-data" action="email.php">
+        <input type="file" name="file" id="file">
         <input type="Submit" value="upload">
     </form>
     <p id = "count"></p>
@@ -154,8 +158,13 @@ We provide you all under agreements, if you already have one, you can kindly upl
     <label for = "address2"></label><input id="address2"  name="address2" placeholder="Area/Locality/Landmark" type="text">
     <label for = "address3"></label><input id="address3"  name="address3" placeholder="City" type="text">
         <label for = "zip"><b>Pincode:</b></label><input id="zip"  name="zip" placeholder="Enter Your Pincode" type="number" pattern="[0-9]{6}">
-    <label for = "amount"><b>Amount:</b></label> <input id="amount" name="amount" placeholder="Amount" type="number">
-    <div class="btn"><input type="submit"></div>
+    <div class = "abc"><input type="radio" id="offline" onclick=" return myFun()"><label for = "offline">Offline Payment</label><br>
+    <input type="radio" id="online" >
+        <label for = "online">Online Payment</label></div>
+    <div class="btn"><input type="submit"></div><br><br>
+    <input type ="checkbox"> I agree to the terms and conditions of XYZ and request you to process the order of creating a
+    rental agreement. I undertake that I am authorised to create this transaction. The above stated information is correct
+    and no alteration is required.
 </form>
 </div>
     <div id="erresult">
@@ -202,6 +211,9 @@ We provide you all under agreements, if you already have one, you can kindly upl
         if(count>1){
             alert( "Please wait while the file is loaded");
     }}
+    function myFun() {
+        Window.open("https:goabrigo.com/test/abc.html");
+    }
 </script>
     </div>
 </body>
