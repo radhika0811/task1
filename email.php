@@ -1,23 +1,23 @@
 <?php
 $postData = $uploadedFile = $statusMsg = '';
 $msgClass = 'errordiv';
-$firstname = $_REQUEST['fname'];
-$email = $_REQUEST['email'];
-$address1 = $_REQUEST['address1'];
-$address2 = $_REQUEST['address2'];
-$address3 = $_REQUEST['address3'];
+$firstname = $_REQUEST['fname'] ? $_REQUEST['fname'] : "empty data";
+$email = $_REQUEST['email'] ? $_REQUEST['email'] : "empty data";
+$address1 = $_REQUEST['address1'] ? $_REQUEST['address1'] : 'empty data';
+$address2 = $_REQUEST['address2'] ? $_REQUEST['address2'] : 'empty data';
+$address3 = $_REQUEST['address3'] ? $_REQUEST['address3'] : 'empty data';
 //$amount = $_REQUEST['amount'];
 $uploadStatus = '';
-if(!empty($_FILES["file"]["name"])){
+if(!empty($_FILES["file"]["name"])) {
     $targetDir = "uploads/";
     $fileName = basename($_FILES["file"]["name"]);
-    $targetFilePath = $targetDir.$fileName;
-    $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+    $targetFilePath = $targetDir . $fileName;
+    $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
     $allowTypes = array('pdf', 'doc', 'jpg', 'png', 'jpeg');
 }
 if(in_array($fileType, $allowTypes)){
 // Upload file to the server
-    if(move_uploaded_file($_FILES["attachment"]["tmp_name"], $targetFilePath)){
+    if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){
         $uploadedFile = $targetFilePath;
     }else{
        // $uploadStatus = 0;
@@ -27,8 +27,8 @@ if(in_array($fileType, $allowTypes)){
    // $uploadStatus = 0;
     $statusMsg = 'Sorry, only PDF, DOC, JPG, JPEG, & PNG files are allowed to upload.';
 }
-$pincode = $_REQUEST['zip'];
-$mobno = $_REQUEST['phone'];
+$pincode = $_REQUEST['zip'] ? $_REQUEST['zip'] : 'empty data';
+$mobno = $_REQUEST['phone'] ? $_REQUEST['phone'] : 'empty data';
 //echo json_encode($_GET);
 if (empty($firstname) || empty($email)  || empty($address1) || empty($address2) || empty($address3) || empty($pincode) || empty($mobno) ) {
     echo "Please enter values in fields";
@@ -58,14 +58,14 @@ Pincode: '.$pincode.'
     $semi_rand = md5(time());
     $mime_boundary = "==Multipart_Boundary_x{$semi_rand}x";
 
-// Headers for attachment  
+// Headers for attachment
     $headers .= "\nMIME-Version: 1.0\n" . "Content-Type: multipart/mixed;\n" . " boundary=\"{$mime_boundary}\"";
 
-// Multipart boundary  
+// Multipart boundary
     $message = "--{$mime_boundary}\n" . "Content-Type: text/html; charset=\"UTF-8\"\n" .
         "Content-Transfer-Encoding: 7bit\n\n" . $htmlContent . "\n\n";
 
-// Preparing attachment 
+// Preparing attachment
     if(!empty($file) > 0){
         if(is_file($fileName)){
             $message .= "--{$mime_boundary}\n";
@@ -83,11 +83,11 @@ Pincode: '.$pincode.'
     $message .= "--{$mime_boundary}--";
     $returnpath = "-f" . $from;
 
-// Send email 
+// Send email
     $mail = @mail($toEmail, $emailSubject, $message, $headers, $returnpath);
 
-// Email sending status 
-    echo $mail?"<h1>Your Application Will Be Processed Soon!</h1>":"<h1>Please Try Again.</h1>";
+// Email sending status
+    echo $mail?"<h1>Email Sent Successfully!</h1>":"<h1>Email sending failed.</h1>";
 }
 //fclose($fm);
 ?>
