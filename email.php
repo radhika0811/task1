@@ -1,11 +1,11 @@
 <?php
 $postData = $uploadedFile = $statusMsg = '';
 $msgClass = 'errordiv';
-$firstname = $_REQUEST['fname'] ? $_REQUEST['fname'] : "empty data";
-$email = $_REQUEST['email'] ? $_REQUEST['email'] : "empty data";
-$address1 = $_REQUEST['address1'] ? $_REQUEST['address1'] : 'empty data';
-$address2 = $_REQUEST['address2'] ? $_REQUEST['address2'] : 'empty data';
-$address3 = $_REQUEST['address3'] ? $_REQUEST['address3'] : 'empty data';
+$firstname = $_REQUEST['fname'];
+$email = $_REQUEST['email'];
+$address1 = $_REQUEST['address1'] ;
+$address2 = $_REQUEST['address2'] ;
+$address3 = $_REQUEST['address3'];
 //$amount = $_REQUEST['amount'];
 $uploadStatus = '';
 if(!empty($_FILES["file"]["name"])) {
@@ -20,15 +20,15 @@ if(in_array($fileType, $allowTypes)){
     if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){
         $uploadedFile = $targetFilePath;
     }else{
-       // $uploadStatus = 0;
+        // $uploadStatus = 0;
         $statusMsg = "Sorry, there was an error uploading your file.";
     }
 }else{
-   // $uploadStatus = 0;
+    // $uploadStatus = 0;
     $statusMsg = 'Sorry, only PDF, DOC, JPG, JPEG, & PNG files are allowed to upload.';
 }
-$pincode = $_REQUEST['zip'] ? $_REQUEST['zip'] : 'empty data';
-$mobno = $_REQUEST['phone'] ? $_REQUEST['phone'] : 'empty data';
+$pincode = $_REQUEST['zip'];
+$mobno = $_REQUEST['phone'];
 //echo json_encode($_GET);
 if (empty($firstname) || empty($email)  || empty($address1) || empty($address2) || empty($address3) || empty($pincode) || empty($mobno) ) {
     echo "Please enter values in fields";
@@ -43,8 +43,6 @@ if (empty($firstname) || empty($email)  || empty($address1) || empty($address2) 
     $from = $email;
     $emailSubject = 'A  new order by '.$firstname;
     $htmlContent = '
-
-
 //Contact Request Submitted
 Name: '.$firstname.'
 Email: '.$email.'
@@ -91,4 +89,3 @@ Pincode: '.$pincode.'
 }
 //fclose($fm);
 ?>
-
