@@ -2,43 +2,43 @@
 <html>
 <head>
     <title></title>
+    <link rel="stylesheet" href="thank.css">
 </head>
 < bgcolor="#b0e0e6">
 <style>
-   .wrapper input {
+    .wrapper input {
         width:100%;
         height:30px;
         border: 1px solid #e0e0e0;
         padding: 10px;
     }
-    body {
+   /* body {
         background-image: url("https://c0.wallpaperflare.com/preview/445/461/217/india-cubbon-park-bengaluru-bangalore.jpg");
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: 100% 700px;
-        //color: white;
-    }
-   /* button {
-        background-color:green;
-        color:white;
-        border:none;
-        border-radius:5px;
-        font-size:14px;
-        padding:5px;
-
-    }
-    h1 {
-        color:green;
-    }
-    h4{
-        color:cadetblue;
-    }
-    h1, h4 {
-        text-align:center;
-    }
-    body {
-        width:60%;
+    //color: white;
     }*/
+    /* button {
+         background-color:green;
+         color:white;
+         border:none;
+         border-radius:5px;
+         font-size:14px;
+         padding:5px;
+     }
+     h1 {
+         color:green;
+     }
+     h4{
+         color:cadetblue;
+     }
+     h1, h4 {
+         text-align:center;
+     }
+     body {
+         width:60%;
+     }*/
     *{
         margin :0;
         padding:0;
@@ -103,7 +103,7 @@
         transform: translate(-35%,-55%);
         max-width: 500px;
         width: 100%;
-        background: beige;
+        background: white;
         padding: 25px;
         border-radius: 5px;
         box-shadow: 4px 4px 2px rgba(254,236,164,1);
@@ -114,105 +114,103 @@
         background: antiquewhite;
 
     }
-   .bottom{
-       position: relative;
-       margin-bottom: 1000px;
-       bottom-left: 250px;
-       transform: translate(10%,700%);
-       max-width: 350px;
-       width: 100%;
-       background: aliceblue;
-       padding: 25px;
-       border-radius: 5px;
-       box-shadow: 4px 4px 2px rgba(290,214,194,5);
-   }
+   /* .bottom{
+        position: relative;
+        margin-bottom: 1000px;
+        bottom-left: 250px;
+        transform: translate(10%,700%);
+        max-width: 350px;
+        width: 100%;
+        background: aliceblue;
+        padding: 25px;
+        border-radius: 5px;
+        box-shadow: 4px 4px 2px rgba(290,214,194,5);
+    }*/
 </style>
+<div class="slider"></div>>
 <div class="boxed">
     <label> <h1><b>Looking for a Home???</b></h1>We know it is pretty hard to shift and settle in big cities and we hardly get any time
-    to just rome around in search of homes. We've made it easy for you. You can now easily get your home booked and set it all on just one click.
-    What all you've to do is just fill some of your details. An Rental agreement is created online using this information. Within 3-4 working days the soft copy of your registered rental agreement is sent
-    to your email ID. And what's more? You don't even need to step out of home!
-    Either the owner or the tenant fills in the required information.
-We provide you all under agreements, if you already have one, you can kindly upload or we've also got it right here for you.
-    <b>Just drag down and fill up your details.</b>
-</label><br></div>
+        to just rome around in search of homes. We've made it easy for you. You can now easily get your home booked and set it all on just one click.
+        What all you've to do is just fill some of your details. An Rental agreement is created online using this information. Within 3-4 working days the soft copy of your registered rental agreement is sent
+        to your email ID. And what's more? You don't even need to step out of home!
+        Either the owner or the tenant fills in the required information.
+        We provide you all under agreements, if you already have one, you can kindly upload or we've also got it right here for you.
+        <b>Just drag down and fill up your details.</b><br>
+        <script type="text/javascript">init()</script>
+        <a download="http://goabrigo.com/test/abc.pdf" href="http://goabrigo.com/test/abc.pdf" onclick="incrementCounter()">Download now</a>
+    </label><br></div>
 <div class="bottom">
     <p id = "count"></p>
-    <script type="text/javascript">init()</script>
-    <a download="http://goabrigo.com/test/abc.pdf" href="http://goabrigo.com/test/abc.pdf" onclick="incrementCounter()">Download now</a>
+
 </div>
 <div class="wrapper">
     <h2> Details </h2>
-<form action="email.php" method="post" enctype="multipart/form-data" onsubmit="return validation()">
+    <form action="email.php" method="post" enctype="multipart/form-data" onsubmit="return validation()">
 
-    <label for = "fname"><b>Name:</b></label><input id="fname" name="fname" placeholder="First Name" type="text">
-    <label for="phone"><b>Mobile number:</b></label><br>
-    <select id = "ph"><option>+91</option><option>+92</option><option>+93</option>
-        <option>+94</option><option>+95</option></select> <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Enter Your Mobile Number">
-    <label for = "email"><b>Email: </b></label><input id="email" name="email" placeholder="abcD23@xyz.com" type="email">
-    <label for = "address1"><b>Address: </b></label><input id="address1"  name= "address1" placeholder="Flat No/House No/Apartment No" type="text">
-    <label for = "address2"></label><input id="address2"  name="address2" placeholder="Area/Locality/Landmark" type="text">
-    <label for = "address3"></label><input id="address3"  name="address3" placeholder="City" type="text">
+        <label for = "fname"><b>Name:</b></label><input id="fname" name="fname" placeholder="First Name" type="text">
+        <label for="phone"><b>Mobile number:</b></label><br>
+        <select id = "ph"><option>+91</option><option>+92</option><option>+93</option>
+            <option>+94</option><option>+95</option></select> <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Enter Your Mobile Number">
+        <label for = "email"><b>Email: </b></label><input id="email" name="email" placeholder="abcD23@xyz.com" type="email">
+        <label for = "address1"><b>Address: </b></label><input id="address1"  name= "address1" placeholder="Flat No/House No/Apartment No" type="text">
+        <label for = "address2"></label><input id="address2"  name="address2" placeholder="Area/Locality/Landmark" type="text">
+        <label for = "address3"></label><input id="address3"  name="address3" placeholder="City" type="text">
         <label for = "zip"><b>Pincode:</b></label><input id="zip"  name="zip" placeholder="Enter Your Pincode" type="number" pattern="[0-9]{6}">
-    <div class = "abc"><input type="radio" id="offline" ><label for = "offline">Offline Payment</label><br>
-    <input type="radio" id="online" >
-        <label for = "online">Online Payment</label></div>
-    <input type="file" name="file" id="file">
-    <div class="btn"><input type="submit"></div><br>
-
-    <input type ="checkbox"> I agree to the terms and conditions of XYZ and request you to process the order of creating a
-    rental agreement. I undertake that I am authorised to create this transaction. The above stated information is correct
-    and no alteration is required.
-</form>
+        <div class = "abc"><input type="radio" id="offline" ><label for = "offline">Offline Payment</label><br>
+            <input type="radio" id="online" >
+            <label for = "online">Online Payment</label></div>
+        <input type="file" name="file" id="file">
+        <div class="btn"><input type="submit"></div><br>
+        <input type ="checkbox"> I agree to the terms and conditions of XYZ and request you to process the order of creating a
+        rental agreement. I undertake that I am authorised to create this transaction. The above stated information is correct
+        and no alteration is required.
+    </form>
 </div>
-    <div id="erresult">
-<script type="text/javascript">
-    function validation() {
-        var name = document.getElementById('fname').value;
-        var email = document.getElementById('email').value;
-        var phno = document.getElementById('phone').value;
-        var pincode = document.getElementById('pincode').value;
-        var amount = document.getElementById('amount').value;
-        if (name == '' || email == '' || pincode == '' || phno == '' || amount == '') {
-            alert("all fields are compulsory");
-            return false;
-        } else if (name.length < 4) {
-            document.getElementById("erresult").innerHTML = "name should be at least 4 characters long";
-            return false;
-        } else if (password.length < 5) {
-            document.getElementById("erresult").innerHTML = "password should be at least 5 characters long";
-            return false;
-        } else if (age < 15) {
-            document.getElementById("erresult").innerHTML = "sorry you're not eligible";
-            return false;
-        } else {
+<div id="erresult">
+    <script type="text/javascript">
+        function validation() {
+            var name = document.getElementById('fname').value;
+            var email = document.getElementById('email').value;
+            var phno = document.getElementById('phone').value;
+            var pincode = document.getElementById('pincode').value;
+            var amount = document.getElementById('amount').value;
+            if (name == '' || email == '' || pincode == '' || phno == '' || amount == '') {
+                alert("all fields are compulsory");
+                return false;
+            } else if (name.length < 4) {
+                document.getElementById("erresult").innerHTML = "name should be at least 4 characters long";
+                return false;
+            } else if (password.length < 5) {
+                document.getElementById("erresult").innerHTML = "password should be at least 5 characters long";
+                return false;
+            } else if (age < 15) {
+                document.getElementById("erresult").innerHTML = "sorry you're not eligible";
+                return false;
+            } else {
+                return true;
+            }
+        }
+        function init() {
+            let count = localStorage.getItem('counter');
+            if(count === null){
+                count = 0;
+                localStorage.setItem('counter', count);
+            }
+            count = parseInt(count);
+            updateCount(count);
+        }
+        function incrementCounter() {
+            let count = parseInt(localStorage.getItem('counter'));
+            count = count + 1;
+            localStorage.setItem('counter', count);
+            updateCount(count);
             return true;
         }
-    }
-    function init() {
-        let count = localStorage.getItem('counter');
-        if(count === null){
-            count = 0;
-            localStorage.setItem('counter', count);
-        }
-        count = parseInt(count);
-        updateCount(count);
-    }
-    function incrementCounter() {
-        let count = parseInt(localStorage.getItem('counter'));
-        count = count + 1;
-        localStorage.setItem('counter', count);
-        updateCount(count);
-        return true;
-    }
-    function updateCount(count) {
-        if(count>1){
-            alert( "Please wait while the file is loaded");
-    }}
-</script>
-    </div>
+        function updateCount(count) {
+            if(count>1){
+                alert( "Please wait while the file is loaded");
+            }}
+    </script>
+</div>
 </body>
 </html>
-
-
-
