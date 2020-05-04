@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #313131;
+}
+.slider{
+    position: absolute;
+    top: 50%;
+    width:1500px;
+    height: 700px;
+    transform: translate(-5%,-60%);
+    background: url("https://c0.wallpaperflare.com/preview/445/461/217/india-cubbon-park-bengaluru-bangalore.jpg");
+    margin: 100px auto;
+    animation: slide 20s infinite;
+}
+@keyframes slide{
+    25%{
+        background: url("https://c0.wallpaperflare.com/preview/445/461/217/india-cubbon-park-bengaluru-bangalore.jpg");
+    }
+    50%{
+        background: url("https://www.elsetge.cat/myimg/f/197-1970905_bengaluru-image-cubbon-park-images-bangalore.jpg");
+    }
+    75%{
+        background: url("https://c1.wallpaperflare.com/preview/102/1024/919/bangalore-india-dusk-twilight.jpg");
+    }
+
+}
