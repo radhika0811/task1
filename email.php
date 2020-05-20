@@ -25,10 +25,10 @@ function sms_integration(){
     curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $result = curl_exec($ch); // This is the result from the API
-    echo $result;
+    //echo $result;
     curl_close($ch);
 }
-function database(){
+/*function database(){
      $host = "localhost";
     $db_name = "goabrigo";
     $username = "radhika";
@@ -52,7 +52,7 @@ function database(){
        // $stmnt -> close();
         $conn = null;
 
-}
+}*/
 $uploadStatus = '';
 if(!empty($_FILES["file"]["name"])) {
     $targetDir = "uploads/";
@@ -79,7 +79,8 @@ if (empty($firstname) || empty($email)  || empty($address1) || empty($address2) 
 } /*if (empty($theData)) {
     echo "Please enter values in fields";
 }*/ else {
-    database();
+    echo(var_dump(include_once "database.php"));
+    //include_once "./database.php";
     sms_integration();
     ini_set("SMTP", "smtp.gmail.com");
     ini_set("smtp_port", "587");
