@@ -6,7 +6,53 @@ $email = $_REQUEST['email'];
 $address1 = $_REQUEST['address1'] ;
 $address2 = $_REQUEST['address2'] ;
 $address3 = $_REQUEST['address3'];
+$pincode = $_REQUEST['zip'];
+$mobno = $_REQUEST['phone'];
 //$amount = $_REQUEST['amount'];
+function sms_integration(){
+    $username = "jatin";
+    $apikey = "32f27136-3898-48e4-8c9a-3e6bf3e20175";
+    $message = "Thanks for successfully registering at GOABRIGO!! Your request will be processed shortly.";
+    $sendername = "JATINJ";
+    $smstype = "TRANS";
+    $numbers = $_POST['phone'];
+
+    $data = "username=".$username."&message=".$message."&sendername=".$sendername."&smstype=".$smstype."&numbers=".$numbers."&apikey=".$apikey;
+
+    $ch = curl_init('http://sms.hspsms.com/sendSMS?');
+
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $result = curl_exec($ch); // This is the result from the API
+    echo $result;
+    curl_close($ch);
+}
+function database(){
+     $host = "localhost";
+    $db_name = "goabrigo";
+    $username = "radhika";
+    $password = "Test!123";
+    try{
+    $conn = new PDO("mysql:host=$host; dbname=$db_name", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $stmnt = $conn -> prepare("INSERT INTO register (firstname,email,mobno,address1,address2,address3,pincode) VALUES(:firstname, :email, :mobno, :address1,:address2,:address3,:pincode)");
+    $stmnt->bindParam(':firstname', $firstname);
+    $stmnt->bindParam(':email', $email);
+    $stmnt->bindParam(':mobno', $mobno);
+    $stmnt->bindParam(':address1', $address1);
+    $stmnt->bindParam(':address2', $address2);
+    $stmnt->bindParam(':address3', $address3);
+    $stmnt->bindParam(':pincode', $pincode);
+        $stmnt -> execute();
+        echo "done..";}
+        catch (PDOException $e){
+            echo "Error: " . $e->getMessage();
+        }
+       // $stmnt -> close();
+        $conn = null;
+
+}
 $uploadStatus = '';
 if(!empty($_FILES["file"]["name"])) {
     $targetDir = "uploads/";
@@ -27,14 +73,14 @@ if(in_array($fileType, $allowTypes)){
     // $uploadStatus = 0;
     $statusMsg = 'Sorry, only PDF, DOC, JPG, JPEG, & PNG files are allowed to upload.';
 }
-$pincode = $_REQUEST['zip'];
-$mobno = $_REQUEST['phone'];
 //echo json_encode($_GET);
 if (empty($firstname) || empty($email)  || empty($address1) || empty($address2) || empty($address3) || empty($pincode) || empty($mobno) ) {
     echo "Please enter values in fields";
 } /*if (empty($theData)) {
     echo "Please enter values in fields";
 }*/ else {
+    database();
+    sms_integration();
     ini_set("SMTP", "smtp.gmail.com");
     ini_set("smtp_port", "587");
     ini_set("sendmail_from", "radhikaa245@gmail.com");
@@ -42,6 +88,7 @@ if (empty($firstname) || empty($email)  || empty($address1) || empty($address2) 
     $toEmail = "Jatin.ibs@gmail.com" ;
     $from = $email;
     $emailSubject = 'A  new order by '.$firstname;
+    $emailSubject1 = 'Thanks for placing an order with GoAbrigo';
     $htmlContent = '
 //Contact Request Submitted
 Name: '.$firstname.'
@@ -80,20 +127,21 @@ Pincode: '.$pincode.'
     }
     $message .= "--{$mime_boundary}--";
     $returnpath = "-f" . $from;
-echo $fileName;
-echo json_encode($_POST);
+//echo $fileName;
+//echo json_encode($_POST);
 // Send email
     $mail = mail($toEmail, $emailSubject, $message, $headers, $returnpath);
+    //$mail1 = mail($email, )
 // Email sending status
-    echo $mail?"<h1>Email Sent Successfully!</h1>":"<h1>Email sending failed.</h1>";
+   // echo $mail?"<h1>Email Sent Successfully!</h1>":"<h1>Email sending failed.</h1>";
 }
 if($mail){
     Windows.history.log(-1);
-    alert("Thanks for submitting your details. Our team will contact you soon");
+   echo '<script> alert("Thanks for submitting your details. Our team will contact you soon")</script>';
 }
 else
 {
-    alert("Try again later");
+    echo '<script> alert("Try again later")</script>';
 }
 //fclose($fm);
 ?>
